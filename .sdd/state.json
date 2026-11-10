@@ -1,0 +1,132 @@
+{
+  "projectName": "CoffeeApp (Calc Coffee)",
+  "slug": "coffe-app",
+  "projectPath": "C:\\Users\\gusta\\antigravity\\coffe-app",
+  "createdAt": "2026-11-07T05:43:53.358Z",
+  "updatedAt": "2026-11-07T08:45:40.845Z",
+  "isBrownfield": true,
+  "currentStage": "completed",
+  "detectedStack": [
+    "Python",
+    "Vanilla Web PWA"
+  ],
+  "skills": [
+    "ai-agent-ux",
+    "analytics-tracking",
+    "design-system",
+    "full-stack-builder",
+    "full-stack-builder-model",
+    "mobile-testing",
+    "pwa-offline-first"
+  ],
+  "stages": {
+    "00_inbox": {
+      "name": "Ideia & Inbox",
+      "status": "completed",
+      "file": ".sdd/00_inbox/idea.md",
+      "completedAt": "2026-11-07T05:43:53.358Z"
+    },
+    "01_product": {
+      "name": "Product Discovery (PRD)",
+      "status": "completed",
+      "file": ".sdd/01_product/PRD.md",
+      "completedAt": "2026-11-07T05:43:53.358Z"
+    },
+    "checkpoint_1": {
+      "name": "Checkpoint 1 (Aprovação PRD)",
+      "status": "completed",
+      "approved": true,
+      "approvedAt": "2026-11-07T05:43:53.358Z",
+      "notes": "Aprovado via Adoção Brownfield de Projeto Existente"
+    },
+    "02_architecture": {
+      "name": "Arquitetura & Modelagem de Dados",
+      "status": "completed",
+      "files": {
+        "spec": ".sdd/02_architecture/SPEC.md",
+        "db": ".sdd/02_architecture/DB_SCHEMA.md",
+        "tasks": ".sdd/02_architecture/TASKS.md"
+      },
+      "completedAt": "2026-11-07T05:43:53.358Z"
+    },
+    "checkpoint_2": {
+      "name": "Checkpoint 2 (Aprovação Arquitetura & Stack)",
+      "status": "completed",
+      "approved": true,
+      "approvedAt": "2026-11-07T05:43:53.358Z",
+      "notes": "Aprovado via Adoção Brownfield da Stack Atual"
+    },
+    "03_development": {
+      "name": "Desenvolvimento Backend & Frontend",
+      "status": "completed",
+      "files": {
+        "backend": ".sdd/03_development/BACKEND_HANDOFF.md",
+        "frontend": ".sdd/03_development/FRONTEND_HANDOFF.md"
+      },
+      "completedAt": "2026-11-07T05:43:53.358Z"
+    },
+    "04_qa": {
+      "name": "Auditoria de QA & Conformidade",
+      "status": "completed",
+      "file": ".sdd/04_qa/QA_REPORT.md",
+      "passed": true,
+      "score": 80,
+      "completedAt": "2026-11-07T08:45:40.845Z",
+      "tests": [
+        {
+          "id": "TEST-01",
+          "name": "Governança & Especificação SDD",
+          "passed": true,
+          "durationMs": 2,
+          "details": "5/5 artefatos de especificação validados: idea.md (0.8 KB), PRD.md (2.0 KB), SPEC.md (1.2 KB), DB_SCHEMA.md (0.8 KB), TASKS.md (0.8 KB)"
+        },
+        {
+          "id": "TEST-02",
+          "name": "Artefatos de Interface / Código Modular",
+          "passed": true,
+          "durationMs": 2,
+          "details": "Artefatos funcionais validados: index.html (29.7 KB), css\\style.css (21.9 KB), js\\app.js (23.5 KB), tests/test-suite.js"
+        },
+        {
+          "id": "TEST-03",
+          "name": "Validação Sintática JavaScript",
+          "passed": true,
+          "durationMs": 3,
+          "details": "Sintaxe JavaScript validada sem erros (8 módulo(s) verificado(s))"
+        },
+        {
+          "id": "TEST-04",
+          "name": "Cobertura dos 4 Estados Visuais na UI",
+          "passed": false,
+          "durationMs": 3,
+          "details": "Estados visuais faltantes: loading (Detectados: success, empty, error)"
+        },
+        {
+          "id": "TEST-05",
+          "name": "Rastreabilidade de Requisitos do PRD",
+          "passed": true,
+          "durationMs": 2,
+          "details": "5/5 requisitos cobertos (RF-01, RF-02, RF-03, RF-04, RF-05)"
+        }
+      ],
+      "previewUrl": "http://127.0.0.1:20129/preview/coffe-app/"
+    }
+  },
+  "history": [
+    {
+      "stage": "brownfield_adoption",
+      "action": "Projeto existente adotado com sucesso na SDD Factory",
+      "timestamp": "2026-11-07T05:43:53.358Z"
+    },
+    {
+      "stage": "04_qa",
+      "action": "Suite de Testes Automatizados executada: 3/5 passaram (Score: 60/100)",
+      "timestamp": "2026-11-07T08:45:26.978Z"
+    },
+    {
+      "stage": "04_qa",
+      "action": "Suite de Testes Automatizados executada: 4/5 passaram (Score: 80/100)",
+      "timestamp": "2026-11-07T08:45:40.845Z"
+    }
+  ]
+}

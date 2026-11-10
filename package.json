@@ -1,0 +1,30 @@
+{
+  "name": "calc-coffee",
+  "version": "2.3.0",
+  "description": "Calc Coffee — Copiloto do Barista, Calculadora de Extração Sensorial e Cronômetro de Bancada",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js",
+    "test": "node tests/test-suite.js",
+    "cap:add:android": "npx cap add android",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android"
+  },
+  "keywords": [
+    "coffee",
+    "barista",
+    "timer",
+    "dial-in",
+    "hario-v60",
+    "specialty-coffee",
+    "pwa",
+    "capacitor"
+  ],
+  "author": "Gustavo Simões & Eduardo",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/android": "^6.2.0"
+  }
+}

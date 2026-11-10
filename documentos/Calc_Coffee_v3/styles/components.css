@@ -1,0 +1,468 @@
+/* =========================
+   Layout
+========================= */
+
+.modes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   Page Header
+========================= */
+
+.page-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.app-title {
+  color: #3b2a1f;
+
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.app-subtitle {
+  margin-top: 10px;
+
+  color: #6b7280;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Cards
+========================= */
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  margin-bottom: 22px;
+  padding: 26px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 28px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.97),
+    rgba(247,243,239,0.96)
+  );
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  transition: all 0.25s ease;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #c58a5c,
+    #e4b183
+  );
+}
+
+.card:hover {
+  transform: translateY(-1px);
+
+  box-shadow: 0 16px 36px rgba(0,0,0,0.07);
+}
+
+/* =========================
+   Step Header
+========================= */
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(197,138,92,0.18),
+    rgba(228,177,131,0.12)
+  );
+
+  color: var(--accent);
+}
+
+.step-icon svg {
+  width: 24px;
+  height: 24px;
+
+  stroke-width: 1.8;
+}
+
+.step-title {
+  color: #3b2a1f;
+
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.step-subtitle {
+  margin-top: 4px;
+
+  color: #6b7280;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =========================
+   Labels
+========================= */
+
+.label {
+  display: block;
+
+  margin-top: 18px;
+  margin-bottom: 8px;
+
+  color: #5f6368;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   Inputs
+========================= */
+
+.input,
+.select {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.85);
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+
+  transition: all 0.2s ease;
+}
+
+.input:hover,
+.select:hover {
+  border-color: rgba(197,138,92,0.35);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+
+  border-color: var(--accent);
+
+  background: white;
+
+  box-shadow: 0 0 0 4px rgba(192,132,87,0.12);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.button {
+  width: 100%;
+
+  padding: 18px;
+
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #c58a5c,
+    #b97a4c
+  );
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  box-shadow: 0 10px 24px rgba(197,138,92,0.28);
+
+  transition: all 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+
+  box-shadow: 0 14px 28px rgba(197,138,92,0.35);
+}
+
+/* =========================
+   Grind Chips
+========================= */
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.chip {
+  padding: 16px 14px;
+
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.72);
+
+  color: #4b5563;
+
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(197,138,92,0.4);
+}
+
+.chip.active {
+  border-color: transparent;
+
+  background: linear-gradient(
+    135deg,
+    #c58a5c,
+    #b97a4c
+  );
+
+  color: white;
+
+  box-shadow: 0 8px 18px rgba(197,138,92,0.28);
+}
+
+/* =========================
+   Advanced Toggle
+========================= */
+
+.toggle {
+  margin-top: 22px;
+  padding: 18px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.68);
+
+  color: #5f6368;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* =========================
+   Text Content
+========================= */
+
+.intro {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.row {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 18px;
+
+  border-top: 1px solid rgba(0,0,0,0.05);
+
+  background: linear-gradient(
+    to top,
+    rgba(244,246,248,0.98),
+    rgba(244,246,248,0.92)
+  );
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   Tooltip
+========================= */
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-tip {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(197,138,92,0.12);
+
+  color: var(--accent);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: help;
+}
+
+.tooltip {
+  position: absolute;
+
+  top: 50%;
+  left: 24px;
+
+  min-width: 220px;
+
+  padding: 12px 14px;
+
+  border-radius: 14px;
+
+  background: rgba(35,35,35,0.96);
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateY(-50%);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 30;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.info-tip:hover .tooltip {
+  opacity: 1;
+
+  transform:
+    translateY(-50%)
+    translateX(4px);
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 520px) {
+
+  .container {
+    padding: 20px 16px 120px;
+  }
+
+  .card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .chips {
+    grid-template-columns: 1fr;
+  }
+
+  .tooltip {
+    top: 30px;
+    left: 0;
+
+    min-width: 200px;
+
+    transform: none;
+  }
+
+  .info-tip:hover .tooltip {
+    transform: translateY(2px);
+  }
+}

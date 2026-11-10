@@ -1,0 +1,50 @@
+/* =========================
+   Global Layout
+========================= */
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+
+  background: linear-gradient(
+    135deg,
+    #f7f3ee 0%,
+    #efe7de 100%
+  );
+}
+
+.container {
+  max-width: 520px;
+
+  margin: auto;
+
+  padding: 28px 20px 120px;
+}
+
+/* =========================
+   Typography
+========================= */
+
+h2,
+h3 {
+  margin: 0 0 var(--space-md);
+
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}

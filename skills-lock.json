@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "full-stack-builder-model": {
+      "source": "samarv/shanon",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/full-stack-builder-model/SKILL.md",
+      "computedHash": "0e32f0f40de22997737767fe14055d8c50df76f859c3550eee16b72b58d1a739"
+    }
+  }
+}

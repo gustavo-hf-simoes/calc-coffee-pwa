@@ -1,0 +1,80 @@
+name: Build Android APK (Calc Coffee)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Validate Unit Tests
+        run: node tests/test-suite.js
+
+      - name: Install Capacitor CLI & Core
+        run: npm install @capacitor/core@^6.2.0 @capacitor/cli@^6.2.0 @capacitor/android@^6.2.0
+
+      - name: Prepare Web Directory (www)
+        run: |
+          mkdir -p www
+          cp -r index.html css js audio favicon.ico manifest.json sw.js www/ 2>/dev/null || cp -r index.html css js audio www/
+          ls -la www/
+          ls -la www/audio/
+
+      - name: Initialize Android Project
+        run: |
+          npx cap add android || true
+          npx cap sync android
+
+      - name: Build Debug APK via Gradle
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Archive APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: calc-coffee-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Create GitHub Release with APK
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/heads/main')
+        with:
+          tag_name: v2.3.0-apk
+          name: "Calc Coffee v2.3.0 (APK Android para Testes)"
+          body: |
+            ## ☕ Calc Coffee — APK Android de Bancada (Staging)
+            
+            Este APK foi gerado automaticamente pela esteira de CI/CD do GitHub Actions.
+            
+            ### Como Instalar no Celular do Eduardo / Barista:
+            1. Baixe o arquivo `app-debug.apk` anexado abaixo diretamente no celular Android.
+            2. Toque no arquivo baixado para instalar.
+            3. Se o Android exibir o alerta de segurança ("Instalar apps de fontes desconhecidas"), confirme a autorização.
+            4. O aplicativo abre nativamente em tela cheia com Wake Lock ativo e voz neural.
+          files: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

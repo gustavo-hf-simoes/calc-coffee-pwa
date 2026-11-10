@@ -1,0 +1,29 @@
+# Antigravity & IDE
+.gemini/
+.idea/
+.vscode/
+
+# Dependências locais
+node_modules/
+android/
+www/
+
+# Binários e pacotes compilados
+cloudflared.exe
+*.mp3
+*.ogg
+*.apk
+
+
+# Backups
+_legacy_backup/
+
+# Arquivos de logs e sistema
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Configurações sensíveis
+.env
+.env.local

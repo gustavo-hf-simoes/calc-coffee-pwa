@@ -1,0 +1,30 @@
+/* =========================
+   Color System
+========================= */
+
+:root {
+
+  /* Backgrounds */
+  --bg-primary: #f4f6f8;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+
+  /* Text */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+
+  /* Accent */
+  --accent: #c08457;
+
+  /* Borders */
+  --border: #e5e7eb;
+
+  /* Spacing */
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+
+  /* Radius */
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}

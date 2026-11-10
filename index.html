@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Calc Coffee • Copiloto do Barista</title>
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#f7f3ee">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Calc Coffee">
+  <link rel="manifest" href="./manifest.json?v=2.3.0">
+  <link rel="stylesheet" href="css/style.css?v=2.3.0">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <div class="brand-icon-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+          <line x1="6" y1="1" x2="6" y2="4"/>
+          <line x1="10" y1="1" x2="10" y2="4"/>
+          <line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">Calc<span>Coffee</span></div>
+      </div>
+    </div>
+    <div class="header-status">
+      <div class="wakelock-pill" id="wakelock-pill">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+        </svg>
+        <span>Tela Ativa</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================================================
+         VIEW 1: PREPARO & CALCULADORA INTELIGENTE
+    =================================================== -->
+    <section id="view-brew" class="view-section active">
+
+      <!-- Alternância de Presets -->
+      <div class="preset-toggle">
+        <button id="tab-mode-custom" class="preset-btn active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="21" x2="4" y2="14"/>
+            <line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/>
+            <line x1="20" y1="12" x2="20" y2="3"/>
+          </svg>
+          <span>Personalizado</span>
+        </button>
+        <button id="tab-mode-champions" class="preset-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+            <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"/>
+            <path d="M6 3h12v7a6 6 0 0 1-12 0V3z"/>
+          </svg>
+          <span>Receitas dos Campeões</span>
+        </button>
+      </div>
+
+      <!-- SEÇÃO CAMPEÕES -->
+      <div id="section-champions-params" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+                  <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+                  <path d="M6 3h12v7a6 6 0 0 1-12 0V3z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="card-title">Receitas Oficiais dos Campeões</div>
+                <div class="card-subtitle">Parâmetros calibrados para campeonatos mundiais</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Tetsu Kasuya -->
+            <div class="champion-card-item active" data-champ-id="tetsu-4-6">
+              <div class="champ-card-header">
+                <div class="champ-card-title-group">
+                  <div class="champ-radio"></div>
+                  <div>
+                    <strong class="champ-name">Método 4:6 (Tetsu Kasuya)</strong>
+                    <div class="champ-meta">Campeão Mundial Brewers Cup 2016 • Hario V60</div>
+                  </div>
+                </div>
+                <span class="champ-tag">5 Despejos</span>
+              </div>
+              <p class="champ-desc">Moagem grossa. 40% da água fracionada equilibra acidez e doçura; os 60% restantes dosam o corpo.</p>
+            </div>
+
+            <!-- Boram Um -->
+            <div class="champion-card-item" data-champ-id="boram-um">
+              <div class="champ-card-header">
+                <div class="champ-card-title-group">
+                  <div class="champ-radio"></div>
+                  <div>
+                    <strong class="champ-name">Receita de Ouro (Boram Um)</strong>
+                    <div class="champ-meta">Campeão Mundial Barista 2023 • Brasil • Hario V60</div>
+                  </div>
+                </div>
+                <span class="champ-tag">4 Despejos</span>
+              </div>
+              <p class="champ-desc">Despejos gentis com controle de fluxo para máxima retenção de voláteis florais e doçura pura.</p>
+            </div>
+
+            <!-- Léo Moço -->
+            <div class="champion-card-item" data-champ-id="leo-moco">
+              <div class="champ-card-header">
+                <div class="champ-card-title-group">
+                  <div class="champ-radio"></div>
+                  <div>
+                    <strong class="champ-name">Pulsos Rápidos (Léo Moço)</strong>
+                    <div class="champ-meta">Tetracampeão Brasileiro de Barismo • Koar</div>
+                  </div>
+                </div>
+                <span class="champ-tag">3 Despejos</span>
+              </div>
+              <p class="champ-desc">Extração no Koar que valoriza notas de chocolate e caramelo com corpo denso dos terroirs nacionais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO PERSONALIZADA -->
+      <div id="section-custom-params">
+
+        <!-- Grid Contido de Métodos com SVGs de Linha -->
+        <div class="methods-grid">
+          <!-- V60 -->
+          <div class="method-card active" data-method="V60">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16l-6 14H10L4 4z"/>
+                <path d="M10 18h4v3h-4z"/>
+                <line x1="8" y1="8" x2="16" y2="8"/>
+              </svg>
+            </div>
+            <div class="method-name">V60</div>
+            <div class="method-tag">Cônico</div>
+          </div>
+
+          <!-- Koar -->
+          <div class="method-card" data-method="KOAR">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 4h14l-5 14h-4L5 4z"/>
+                <line x1="9" y1="7" x2="9" y2="15"/>
+                <line x1="12" y1="7" x2="12" y2="15"/>
+                <line x1="15" y1="7" x2="15" y2="15"/>
+                <path d="M9 18h6v3H9z"/>
+              </svg>
+            </div>
+            <div class="method-name">Koar</div>
+            <div class="method-tag">Brasil</div>
+          </div>
+
+          <!-- Melitta -->
+          <div class="method-card" data-method="MELITTA">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 5h16l-3 13H7L4 5z"/>
+                <path d="M7 18h10v3H7z"/>
+                <line x1="19" y1="9" x2="21" y2="13"/>
+              </svg>
+            </div>
+            <div class="method-name">Melitta</div>
+            <div class="method-tag">Fundo Reto</div>
+          </div>
+
+          <!-- Kalita -->
+          <div class="method-card" data-method="KALITA">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16l-3 12H7L4 6z"/>
+                <circle cx="10" cy="18" r="0.75" fill="currentColor"/>
+                <circle cx="12" cy="18" r="0.75" fill="currentColor"/>
+                <circle cx="14" cy="18" r="0.75" fill="currentColor"/>
+                <path d="M6 18h12v3H6z"/>
+              </svg>
+            </div>
+            <div class="method-name">Kalita</div>
+            <div class="method-tag">Ondulado</div>
+          </div>
+
+          <!-- Chemex -->
+          <div class="method-card" data-method="CHEMEX">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 3h12l-4 8 5 10H5l5-10-4-8z"/>
+                <rect x="9" y="10" width="6" height="3" rx="1"/>
+              </svg>
+            </div>
+            <div class="method-name">Chemex</div>
+            <div class="method-tag">Clareza</div>
+          </div>
+
+          <!-- AeroPress -->
+          <div class="method-card" data-method="AEROPRESS">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="7" y="6" width="10" height="12" rx="1"/>
+                <line x1="12" y1="2" x2="12" y2="6"/>
+                <rect x="6" y="2" width="12" height="2" rx="1"/>
+                <path d="M7 18h10l-2 3H9l-2-3z"/>
+              </svg>
+            </div>
+            <div class="method-name">AeroPress</div>
+            <div class="method-tag">Pressão</div>
+          </div>
+
+          <!-- Prensa Francesa -->
+          <div class="method-card" data-method="FRENCH_PRESS">
+            <div class="method-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="5" width="12" height="15" rx="1"/>
+                <line x1="12" y1="2" x2="12" y2="10"/>
+                <circle cx="12" cy="2" r="1.5" fill="currentColor"/>
+                <line x1="7" y1="10" x2="17" y2="10"/>
+                <path d="M18 9h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/>
+              </svg>
+            </div>
+            <div class="method-name">Prensa</div>
+            <div class="method-tag">Imersão</div>
+          </div>
+        </div>
+
+        <!-- Banner com Física do Método Selecionado -->
+        <div class="method-info-banner" id="method-physics-banner">
+          <strong id="method-physics-title">Hario V60:</strong> <span id="method-physics-desc">Filtro cônico com ranhuras espirais a 60° e orifício largo. Proporciona fluxo livre, acidez málica brilhante e alta clareza aromática.</span>
+        </div>
+
+        <!-- Card de Volume & Proporção -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="card-title">Volume & Proporção</div>
+                <div class="card-subtitle">Água e café calculados para o método</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label">
+              <span>Quantidade de Água Desejada</span>
+              <span class="label-val" id="water-display-val">300 ml</span>
+            </div>
+            <input type="number" id="input-water" class="input" value="300" min="100" max="1500" step="10">
+
+            <div class="volume-steppers">
+              <button class="stepper-btn" data-water="200">200ml (1 xícara)</button>
+              <button class="stepper-btn" data-water="250">250ml</button>
+              <button class="stepper-btn" data-water="300">300ml (Caneca)</button>
+              <button class="stepper-btn" data-water="+50">+50ml</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label">Proporção (Ratio Café : Água)</div>
+            <select id="select-ratio" class="select">
+              <option value="1:12">1:12 • Muito Intenso / Relação Curta</option>
+              <option value="1:13">1:13 • Concentrado</option>
+              <option value="1:14">1:14 • Encorpado</option>
+              <option value="1:15" selected>1:15 • Equilibrado (Padrão Áureo)</option>
+              <option value="1:16">1:16 • Suave & Doce</option>
+              <option value="1:17">1:17 • Delicado / Floral</option>
+              <option value="1:18">1:18 • Muito Suave</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="label">Perfil de Extração</div>
+            <select id="select-profile" class="select">
+              <option value="classico" selected>Clássico Equilibrado (3 Despejos)</option>
+              <option value="frutado">Frutado & Cítrico (4 Despejos com foco inicial)</option>
+              <option value="floral">Floral & Delicado (4 Despejos suaves)</option>
+              <option value="gourmet">Gourmet Intenso (2 Despejos encorpados)</option>
+              <option value="exotico">Exótico & Anaeróbico (4 Despejos)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Características do Grão -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                  <path d="M12 6a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="card-title">Granulometria & Torra</div>
+                <div class="card-subtitle">Calibração física para dissolução ideal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label">Moagem Selecionada</div>
+            <div class="chips-row" id="chips-grind">
+              <div class="chip" data-value="fine">Fina</div>
+              <div class="chip" data-value="medium-fine">Média-Fina</div>
+              <div class="chip active" data-value="medium">Média</div>
+              <div class="chip" data-value="medium-coarse">Média-Grossa</div>
+              <div class="chip" data-value="coarse">Grossa</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label">Ponto da Torra</div>
+            <div class="chips-row" id="chips-roast">
+              <div class="chip" data-value="light">Clara (95°C)</div>
+              <div class="chip active" data-value="medium">Média (93°C)</div>
+              <div class="chip" data-value="dark">Escura (90°C)</div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="label">Tempo após a Torra (Frescor)</div>
+            <div class="chips-row" id="chips-freshness">
+              <div class="chip" data-value="fresh">Fresco (&lt; 7d)</div>
+              <div class="chip active" data-value="rested">Descansado (7-30d)</div>
+              <div class="chip" data-value="old">Mais antigo (&gt; 30d)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Resumo da Receita Calculada -->
+      <div class="card" style="border-color: var(--coffee-dark);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <strong style="color: var(--text-heading); font-size: 15px;" id="sum-method-name">Hario V60</strong>
+          <span style="font-size: 11px; color: var(--coffee-terracotta); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Calculado pelo Copiloto</span>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="summary-label">Café em Pó</div>
+            <div class="summary-value" id="sum-coffee">20.0</div>
+            <div class="summary-unit">gramas</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Temp. Água</div>
+            <div class="summary-value" id="sum-temp">93°C</div>
+            <div class="summary-unit">recomendada</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Tempo Alvo</div>
+            <div class="summary-value" id="sum-time">3:00</div>
+            <div class="summary-unit">minutos</div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-light);">
+          <div>Pré-infusão: <strong style="color: var(--text-heading);" id="sum-bloom">60ml (35s)</strong></div>
+          <div>Etapas: <strong style="color: var(--text-heading);" id="sum-pours">3 despejos</strong></div>
+        </div>
+      </div>
+
+      <!-- Botão Primário -->
+      <button id="btn-start-bench" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Iniciar Extração na Bancada</span>
+      </button>
+
+    </section>
+
+    <!-- ===================================================
+         VIEW 2: MODO BANCADA (LIVE BREW TIMER)
+    =================================================== -->
+    <section id="view-timer" class="view-section">
+
+      <div class="card" style="text-align: center; padding: 22px 16px;">
+        <span class="step-badge" id="timer-step-badge">Pré-infusão (Bloom)</span>
+
+        <div class="timer-target-water">
+          <div class="target-label">Despejar até atingir na balança:</div>
+          <div class="target-number" id="timer-target-water">60 <span>ml</span></div>
+          <div class="target-sub" id="timer-target-sub">+60 ml neste passo</div>
+        </div>
+
+        <div class="clock-display" id="timer-clock">0:00</div>
+        <div class="clock-total" id="timer-method-badge">Hario V60 • 300ml (1:15)</div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="timer-progress-bar"></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+            <select id="select-audio-mode" class="select" style="width: auto; padding: 6px 12px; font-size: 12px; background: var(--bg-subtle);">
+              <option value="voice-chime" selected>Voz de Barista & Sino Acústico</option>
+              <option value="chime-only">Apenas Sino Acústico (Modo Zen)</option>
+              <option value="silent">Silencioso</option>
+            </select>
+          </div>
+          <button id="btn-test-voice" type="button" class="btn-subtle" style="padding: 6px 12px; font-size: 11px; font-weight: 600; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: #ffffff; color: var(--text-primary); cursor: pointer; box-shadow: var(--shadow-sm);">
+            Ouvir Demonstração ▶
+          </button>
+        </div>
+      </div>
+
+      <!-- Roteiro de Despejos -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom: 12px; font-size: 14px;">Roteiro de Despejos</div>
+        <div class="steps-checklist" id="timer-steps-checklist"></div>
+      </div>
+
+      <!-- Controles do Cronômetro -->
+      <div class="timer-actions">
+        <button id="timer-btn-play" class="btn-timer-main">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span>Iniciar Cronômetro</span>
+        </button>
+        <button id="timer-btn-skip" class="btn-timer-sub">
+          <span>Pular Passo ❯❯</span>
+        </button>
+      </div>
+
+      <button id="timer-btn-reset" class="btn-secondary" style="width: 100%; margin-top: 10px;">
+        <span>Reiniciar Preparo</span>
+      </button>
+
+    </section>
+
+    <!-- ===================================================
+         VIEW 3: COPILOTO IA (DIAL-IN SENSORIAL)
+    =================================================== -->
+    <section id="view-coach" class="view-section">
+
+      <div class="card" id="coach-feedback-box">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="card-svg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2a6 6 0 0 1 6 6c0 3-2 5.5-4 7v3h-4v-3c-2-1.5-4-4-4-7a6 6 0 0 1 6-6z"/>
+                <line x1="9" y1="21" x2="15" y2="21"/>
+              </svg>
+            </div>
+            <div>
+              <div class="card-title">Diagnóstico Sensorial da Xícara</div>
+              <div class="card-subtitle">Como ficou o café no seu paladar?</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.45; margin-bottom: 12px;">
+          Selecione a percepção de sabor predominante. A inteligência artificial correlacionará o tempo de fluxo, moagem e método para prescrever a calibração da próxima xícara:
+        </p>
+
+        <div class="feedback-tag-grid">
+          <!-- Amargo -->
+          <div class="feedback-tag" data-feedback="bitter">
+            <div class="feedback-icon-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="feedback-title">Muito Amargo</div>
+              <div class="feedback-sub">Boca seca / adstringente</div>
+            </div>
+          </div>
+
+          <!-- Ácido -->
+          <div class="feedback-tag" data-feedback="sour">
+            <div class="feedback-icon-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="feedback-title">Muito Ácido</div>
+              <div class="feedback-sub">Azedo / cru / pontiagudo</div>
+            </div>
+          </div>
+
+          <!-- Canalizado -->
+          <div class="feedback-tag" data-feedback="channeling">
+            <div class="feedback-icon-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="feedback-title">Desequilibrado</div>
+              <div class="feedback-sub">Canalização / desigual</div>
+            </div>
+          </div>
+
+          <!-- Fraco -->
+          <div class="feedback-tag" data-feedback="weak">
+            <div class="feedback-icon-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="feedback-title">Ralo / Sem Corpo</div>
+              <div class="feedback-sub">Diluído / aguado</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perfeito -->
+        <div class="feedback-tag" data-feedback="perfect" style="border-color: var(--status-success); background: rgba(46, 125, 50, 0.08);">
+          <div class="feedback-icon-box" style="background: rgba(46, 125, 50, 0.15); color: var(--status-success);">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+              <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+              <path d="M4 22h16"/>
+              <path d="M6 3h12v7a6 6 0 0 1-12 0V3z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="feedback-title" style="color: var(--status-success);">Xícara de Ouro! Equilibrado</div>
+            <div class="feedback-sub">Doçura caramelizada marcante, acidez sedosa e corpo aveludado</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container do Diagnóstico Dinâmico de IA -->
+      <div id="coach-diagnosis-container"></div>
+
+      <!-- Histórico de Extrações -->
+      <div class="card" style="margin-top: 16px;">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="card-svg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <div class="card-title">Diário de Extrações</div>
+              <div class="card-subtitle">Registrado localmente no dispositivo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="history-feed" id="history-list-container"></div>
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         VIEW 4: CURADORIA & SHOPPING (DESATIVADA TEMPORARIAMENTE)
+         Desativada até formalização de parcerias e contas de afiliação confiáveis.
+    =================================================== -->
+    <!--
+    <section id="view-store" class="view-section">
+      <div class="card" style="border-left: 4px solid var(--coffee-dark);">
+        <div style="font-size: 11px; text-transform: uppercase; color: var(--coffee-terracotta); font-weight: 800; letter-spacing: 0.08em;">
+          Curadoria Especial
+        </div>
+        <h2 style="font-size: 18px; font-weight: 800; color: var(--text-heading); margin: 6px 0;">
+          Cafés Especiais & Equipamentos de Barismo
+        </h2>
+        <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.45;">
+          Produtos recomendados pelos diagnósticos do copiloto. Parcerias com microtorrefações nacionais e cupom exclusivo de 10% de desconto: <strong>CALCCOFFEE10</strong>.
+        </p>
+      </div>
+
+      <div class="shop-categories">
+        <button class="shop-category-btn active" data-category="all">Todos</button>
+        <button class="shop-category-btn" data-category="beans">Grãos Especiais 85+ SCA</button>
+        <button class="shop-category-btn" data-category="gear">Moedores & Acessórios</button>
+      </div>
+
+      <div class="products-grid" id="products-feed"></div>
+    </section>
+    -->
+
+  </main>
+
+  <!-- ===================================================
+       BOTTOM NAVIGATION BAR (BARRA FIXA INFERIOR)
+  =================================================== -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-tab="brew">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <line x1="4" y1="21" x2="4" y2="14"/>
+        <line x1="4" y1="10" x2="4" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12" y2="3"/>
+        <line x1="20" y1="21" x2="20" y2="16"/>
+        <line x1="20" y1="12" x2="20" y2="3"/>
+      </svg>
+      <div class="nav-label">Preparo</div>
+    </button>
+    <button class="nav-item" data-tab="timer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <div class="nav-label">Bancada</div>
+    </button>
+    <button class="nav-item" data-tab="coach">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M12 2a6 6 0 0 1 6 6c0 3-2 5.5-4 7v3h-4v-3c-2-1.5-4-4-4-7a6 6 0 0 1 6-6z"/>
+        <line x1="9" y1="21" x2="15" y2="21"/>
+      </svg>
+      <div class="nav-label">Copiloto IA</div>
+    </button>
+    <!-- Curadoria comentada temporariamente -->
+    <!--
+    <button class="nav-item" data-tab="store">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <div class="nav-label">Curadoria</div>
+    </button>
+    -->
+  </nav>
+
+  <!-- Scripts com Cache-Busting -->
+  <script src="js/engine.js?v=2.3.0"></script>
+  <script src="js/timer.js?v=2.3.0"></script>
+  <script src="js/dialin-coach.js?v=2.3.0"></script>
+  <script src="js/store.js?v=2.3.0"></script>
+  <script src="js/analytics.js?v=2.3.0"></script>
+  <script src="js/app.js?v=2.3.0"></script>
+
+</body>
+</html>

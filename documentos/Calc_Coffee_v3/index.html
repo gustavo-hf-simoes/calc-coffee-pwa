@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calc Coffee</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/utilities.css">
+  <link rel="stylesheet" href="styles/timeline.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="app-title">Calc Coffee</div>
+      <div class="app-subtitle">Elevando o nível do seu café</div>
+    </div>
+
+    <!-- Recipe Base -->
+    <div class="card active">
+
+      <div class="step-header">
+
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 6h16" />
+            <path d="M6 6l2 12h8l2-12" />
+            <path d="M10 18h4" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="step-title">Receita Base</div>
+          <div class="step-subtitle">
+            método, perfil e proporção
+          </div>
+        </div>
+
+      </div>
+
+      <label class="label">Método</label>
+
+      <select id="method" class="select">
+        <option value="MELITTA">Melitta</option>
+        <option value="V60" selected>V60</option>
+        <option value="CHEMEX">Chemex</option>
+        <option value="KALITA">Kalita</option>
+        <option value="KOAR">Koar</option>
+      </select>
+
+      <label class="label">Perfil</label>
+
+      <select id="profile" class="select">
+        <option value="gourmet">Gourmet</option>
+        <option value="classico" selected>Clássico</option>
+        <option value="frutado">Frutado</option>
+        <option value="floral">Floral</option>
+        <option value="exotico">Exótico</option>
+      </select>
+
+      <label class="label">Água (ml)</label>
+
+      <input id="value" class="input" type="number" value="300">
+
+      <label class="label">Proporção</label>
+
+      <select id="ratio" class="select">
+        <option value="1:12">1:12 • Concentrado</option>
+        <option value="1:13">1:13</option>
+        <option value="1:14">1:14</option>
+        <option value="1:15" selected>1:15 • Equilibrado</option>
+        <option value="1:16">1:16</option>
+        <option value="1:17">1:17</option>
+        <option value="1:18">1:18 • Suave</option>
+      </select>
+
+    </div>
+
+    <!-- Coffee Characteristics -->
+    <div class="card">
+
+      <div class="step-header">
+
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 3C8 8 6 11 6 14a6 6 0 0012 0c0-3-2-6-6-11z" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="step-title">Características do Café</div>
+
+          <div class="step-subtitle">
+            torra e frescor dos grãos
+          </div>
+        </div>
+
+      </div>
+
+      <label class="label">Torra</label>
+
+      <select id="roast" class="select">
+        <option value="light">Clara</option>
+        <option value="medium" selected>Média</option>
+        <option value="dark">Escura</option>
+      </select>
+
+      <label class="label info-label">
+        Frescor
+
+        <span class="info-tip">
+          ⓘ
+
+          <span class="tooltip">
+            Torra Fresca: até ~7 dias<br>
+            Descansado: ~7 a 30 dias<br>
+            Mais antigo: acima de ~30 dias
+          </span>
+        </span>
+      </label>
+
+      <select id="freshness" class="select">
+        <option value="fresh">Fresco</option>
+        <option value="rested" selected>Descansado</option>
+        <option value="old">Mais antigo</option>
+      </select>
+
+    </div>
+
+    <!-- Extraction Parameters -->
+    <div class="card">
+
+      <div class="step-header">
+
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="7" y="3" width="10" height="5" />
+            <rect x="6" y="8" width="12" height="10" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="step-title">Extração</div>
+
+          <div class="step-subtitle">
+            moagem e parâmetros finos
+          </div>
+        </div>
+
+      </div>
+
+      <label class="label info-label">
+        Referência de moagem
+
+        <span class="info-tip">
+          ⓘ
+
+          <span class="tooltip">
+            Fina → açúcar refinado<br><br>
+            Média → açúcar cristal<br><br>
+            Média grossa → areia grossa<br><br>
+            Grossa → flor de sal
+          </span>
+        </span>
+      </label>
+
+      <div class="chips">
+        <div class="chip" data-value="fine">Fina</div>
+        <div class="chip active" data-value="medium">Média</div>
+        <div class="chip" data-value="medium-coarse">Média grossa</div>
+        <div class="chip" data-value="coarse">Grossa</div>
+      </div>
+
+      <input type="hidden" id="grind" value="medium">
+
+      <!-- Advanced Extraction Controls -->
+      <div class="toggle" onclick="Barista.toggleAdvanced()">
+
+        Parâmetros de extração ▼
+
+        <div class="text-muted" style="font-size: 13px; margin-top: 6px;">
+          Ajuste fino da receita
+        </div>
+
+      </div>
+
+      <div id="advanced" class="hidden">
+
+        <label class="label info-label">
+          Bloom (ml)
+
+          <span class="info-tip">
+            ⓘ
+
+            <span class="tooltip">
+              Primeira saturação do café para liberar gases
+            </span>
+          </span>
+        </label>
+
+        <input id="bloomWater" class="input" type="number" placeholder="auto">
+
+        <label class="label info-label">
+          Tempo Bloom
+
+          <span class="info-tip">
+            ⓘ
+
+            <span class="tooltip">
+              Tempo de pausa da pré-infusão
+            </span>
+          </span>
+        </label>
+
+        <input id="bloomTime" class="input" type="text" placeholder="mm:ss">
+
+        <label class="label info-label">
+          Despejos
+
+          <span class="info-tip">
+            ⓘ
+
+            <span class="tooltip">
+              Quantidade de etapas de água durante a extração
+            </span>
+          </span>
+        </label>
+
+        <input id="poursCount" class="input" type="number" placeholder="auto">
+
+        <label class="label">Tempo total (s)</label>
+
+        <input id="totalTime" class="input" type="text" placeholder="mm:ss">
+
+      </div>
+
+    </div>
+
+    <!-- Recipe Summary -->
+    <div class="card hidden" id="resultCard">
+
+      <div id="summaryContainer"></div>
+
+      <button
+        id="startExtractionBtn"
+        class="button mt-lg"
+        onclick="Barista.startExtraction()"
+      >
+        Iniciar Extração Guiada
+      </button>
+
+      <!-- Sensory Analysis -->
+      <div id="sensoryBlock" class="mt-md hidden">
+
+        <div class="row">
+          <strong>Descrição:</strong>
+          <span id="rDescription"></span>
+        </div>
+
+        <div class="row">
+          <strong>Corpo:</strong>
+          <span id="rBody"></span>
+        </div>
+
+        <div class="row">
+          <strong>Acidez:</strong>
+          <span id="rAcidity"></span>
+        </div>
+
+        <div class="row">
+          <strong>Clareza:</strong>
+          <span id="rClarity"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Guided Extraction -->
+    <div class="card hidden" id="extractionCard">
+      <div id="timelineContainer"></div>
+    </div>
+
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="footer" id="footer">
+
+    <button class="button" onclick="Barista.run()">
+      Calcular Receita
+    </button>
+
+  </div>
+
+  <script src="engine/engine.js"></script>
+  <script src="engine/timeline.js"></script>
+  <script src="engine/app.controller.js"></script>
+
+</body>
+
+</html>
