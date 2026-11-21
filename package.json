@@ -1,14 +1,21 @@
 {
   "name": "calc-coffee",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Calc Coffee — Copiloto do Barista, Calculadora de Extração Sensorial e Cronômetro de Bancada",
   "main": "serve.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "start": "node serve.js",
     "test": "node tests/test-suite.js",
+    "build:web": "node scripts/prepare-web.mjs",
+    "assets:brand": "node scripts/generate-brand-assets.mjs",
+    "assets:native": "npx capacitor-assets generate --android --iconBackgroundColor \"#3b2a1f\" --iconBackgroundColorDark \"#2a1e16\" --splashBackgroundColor \"#f7f3ee\" --splashBackgroundColorDark \"#2a1e16\"",
     "cap:add:android": "npx cap add android",
-    "cap:sync": "npx cap sync",
-    "cap:open": "npx cap open android"
+    "cap:sync": "npx cap sync android",
+    "cap:open": "npx cap open android",
+    "android:configure": "node scripts/configure-android-release.mjs"
   },
   "keywords": [
     "coffee",
@@ -23,8 +30,14 @@
   "author": "Gustavo Simões & Eduardo",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@capacitor/cli": "^6.2.0",
-    "@capacitor/core": "^6.2.0",
-    "@capacitor/android": "^6.2.0"
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.4.1",
+    "@langchain/langgraph": "^1.7.4",
+    "zod": "^4.6.7"
   }
 }

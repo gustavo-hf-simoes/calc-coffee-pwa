@@ -2,12 +2,34 @@
   "appId": "com.calccoffee.app",
   "appName": "Calc Coffee",
   "webDir": "www",
+  "backgroundColor": "#f7f3ee",
+  "loggingBehavior": "debug",
+  "zoomEnabled": false,
   "server": {
-    "androidScheme": "https"
+    "hostname": "localhost",
+    "androidScheme": "https",
+    "cleartext": false,
+    "allowNavigation": []
   },
   "android": {
-    "allowMixedContent": true,
+    "backgroundColor": "#f7f3ee",
+    "allowMixedContent": false,
     "captureInput": true,
-    "webContentsDebuggingEnabled": true
+    "webContentsDebuggingEnabled": false,
+    "loggingBehavior": "debug",
+    "useLegacyBridge": false
+  },
+  "plugins": {
+    "CapacitorCookies": {
+      "enabled": false
+    },
+    "CapacitorHttp": {
+      "enabled": false
+    },
+    "SystemBars": {
+      "insetsHandling": "css",
+      "initialViewportFitValueHint": "cover",
+      "style": "LIGHT"
+    }
   }
 }

@@ -2,12 +2,19 @@
  * Calc Coffee - Service Worker (Offline-First com Network-First para Código e Cache para Áudios)
  */
 
-const CACHE_NAME = "calc-coffee-v2.3.0";
+const CACHE_NAME = "calc-coffee-v2.4.0";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
+  "./privacy.html",
   "./manifest.json",
   "./css/style.css",
+  "./css/tokens.css",
+  "./css/privacy.css",
+  "./icons/icon.svg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./js/privacy.js",
   "./js/engine.js",
   "./js/timer.js",
   "./js/dialin-coach.js",

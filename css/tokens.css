@@ -1,0 +1,48 @@
+/**
+ * Calc Coffee - Design Tokens (Clean Scandinavian Specialty Coffee)
+ */
+
+:root {
+  /* Paleta Nórdica de Café Especial */
+  --bg-primary: #f7f3ee;
+  --bg-surface: #ffffff;
+  --bg-subtle: #efe7de;
+  --bg-glass: rgba(247, 243, 238, 0.88);
+  
+  --coffee-dark: #3b2a1f;          /* Marrom Espresso Profundo */
+  --coffee-dark-hover: #2a1e16;
+  --coffee-terracotta: #c08457;     /* Detalhes Terracota Artesanal */
+  --coffee-terracotta-soft: rgba(192, 132, 87, 0.15);
+  --coffee-cream: #e8dccb;
+  --coffee-light: #f3ece4;
+  
+  --text-heading: #3b2a1f;
+  --text-body: #5a4b41;
+  --text-secondary: #7d6b5f;
+  --text-muted: #a6988d;
+  
+  --border-light: rgba(59, 42, 31, 0.08);
+  --border-medium: rgba(59, 42, 31, 0.16);
+  --border-focus: #c08457;
+  
+  --status-success: #2e7d32;
+  --status-success-bg: rgba(46, 125, 50, 0.1);
+  --status-warning: #e65100;
+  --status-warning-bg: rgba(230, 81, 0, 0.1);
+  --status-danger: #c0392b;
+  --status-danger-bg: rgba(192, 57, 43, 0.12);
+  
+  --shadow-sm: 0 1px 3px rgba(59, 42, 31, 0.04), 0 1px 2px rgba(59, 42, 31, 0.06);
+  --shadow-md: 0 4px 12px rgba(59, 42, 31, 0.06), 0 2px 4px rgba(59, 42, 31, 0.04);
+  --shadow-lg: 0 10px 24px rgba(59, 42, 31, 0.08), 0 4px 8px rgba(59, 42, 31, 0.04);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --header-height: 56px;
+  --bottom-bar-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}

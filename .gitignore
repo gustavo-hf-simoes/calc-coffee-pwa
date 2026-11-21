@@ -11,9 +11,8 @@ www/
 # Binários e pacotes compilados
 cloudflared.exe
 *.mp3
-*.ogg
 *.apk
-
+*.aab
 
 # Backups
 _legacy_backup/
@@ -24,6 +23,8 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Configurações sensíveis
+# Configurações sensíveis e chaves de assinatura
 .env
 .env.local
+*.jks
+*.keystore
