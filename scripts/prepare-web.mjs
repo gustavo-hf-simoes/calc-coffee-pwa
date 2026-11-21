@@ -20,11 +20,11 @@ const REQUIRED_WEB_ENTRIES = Object.freeze([
   "sw.js",
   "css",
   "js",
-  "audio",
   "icons"
 ]);
 
 const OPTIONAL_WEB_ENTRIES = Object.freeze([
+  "audio",
   "favicon.ico"
 ]);
 
